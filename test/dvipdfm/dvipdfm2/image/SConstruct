@@ -1,0 +1,15 @@
+import TestSCons
+import os
+
+_python_ = TestSCons._python_
+foo = Environment(ENV = { 'PATH' : os.environ['PATH'] },
+                  tools = ['default', 'dvipdfm'])
+dvipdfm = foo.Dictionary('DVIPDFM')
+bar = Environment(ENV = { 'PATH' : os.environ['PATH'] },
+    tools = ['default', 'dvipdfm'],
+    DVIPDFM = r'%s wrapper.py %s' % (_python_, dvipdfm))
+foo.DVIPDFM(target = 'foo.pdf',
+    source = foo.DVI(target = 'foo.dvi', source = 'foo.tex'))
+bar.DVIPDFM(target = 'bar.pdf',
+    source = bar.DVI(target = 'bar.dvi', source = 'bar.tex'))
+foo.DVIPDFM(target = 'xxx.pdf', source = 'xxx.tex')

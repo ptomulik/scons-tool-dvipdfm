@@ -1,0 +1,10 @@
+import TestSCons
+_python_ = TestSCons._python_
+env = Environment(TEX = r'%s mytex.py' % _python_,
+                  LATEX = r'%s mylatex.py' % _python_,
+                  DVIPDFM = r'%s mydvipdfm.py' % _python_,
+                  tools=['dvipdfm', 'latex', 'tex'])
+dvi = env.DVI(target = 'test1.dvi', source = 'test1.tex')
+env.DVI(target = 'test2.dvi', source = 'test2.tex')
+env.DVIPDFM(target = 'test1.pdf', source = dvi)
+env.DVIPDFM(target = 'test2.pdf', source = 'test2.dvi')

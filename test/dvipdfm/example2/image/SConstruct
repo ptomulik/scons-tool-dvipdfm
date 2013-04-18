@@ -1,0 +1,2 @@
+env = Environment(tools = ['tex', 'dvipdfm'])
+env.DVIPDFM('foo.tex')
