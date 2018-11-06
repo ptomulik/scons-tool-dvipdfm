@@ -23,7 +23,7 @@
 __docformat__ = "restructuredText"
 
 """
-TODO: Write documentation
+Ensure that dvipdfm generates appropriate command line with -o option.
 """
 
 import sys

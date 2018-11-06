@@ -23,7 +23,8 @@
 __docformat__ = "restructuredText"
 
 """
-TODO: Write documentation
+Ensure that dvipdfm tool respects DVIPDFM construction variable and invokes
+provided CLI command.
 """
 
 import sys

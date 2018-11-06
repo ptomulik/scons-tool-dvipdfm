@@ -1,3 +1,0 @@
-import os
-env = Environment(ENV={'PATH': os.environ['PATH']}, tools=['dvipdfm'])
-env.DVIPDFM('foo.dvi')

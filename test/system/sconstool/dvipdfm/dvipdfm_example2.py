@@ -23,7 +23,7 @@
 __docformat__ = "restructuredText"
 
 """
-Test example 1 from user documentation
+Test example 2 from user documentation
 """
 
 import sys
@@ -38,13 +38,31 @@ dvipdfm = test.where_is('dvipdfm')
 if not dvipdfm:
     test.skip_test('dvipdfm not found, skipping test...\n')
 
-test.dir_fixture('image')
+latex = test.where_is('latex')
+if not latex:
+    test.skip_test('latex not found, skipping test...\n')
+
 test.subdir(['site_scons'])
 test.subdir(['site_scons', 'site_tools'])
 test.subdir(['site_scons', 'site_tools', 'dvipdfm'])
 test.file_fixture('../../../../__init__.py','site_scons/site_tools/dvipdfm/__init__.py')
 test.file_fixture('../../../../about.py','site_scons/site_tools/dvipdfm/about.py')
 test.file_fixture('../../../../dvipdfm.py','site_scons/site_tools/dvipdfm/dvipdfm.py')
+
+test.write('foo.tex', r"""
+\documentclass{article}
+\begin{document}
+\begin{abstract}
+This is the foo.tex TeX file.
+\end{abstract}
+\end{document}
+""")
+
+test.write('SConstruct', r"""
+import os
+env = Environment(ENV={'PATH': os.environ['PATH']}, tools=['tex', 'dvipdfm'])
+env.DVIPDFM('foo.tex')
+""")
 
 test.run(arguments = [], stderr = None)
 
