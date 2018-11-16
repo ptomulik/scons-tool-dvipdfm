@@ -79,7 +79,7 @@ def download_texlive_installer(**kw):
     if not url:
         url_base = kw.get('installer_url_base')
         if not url_base:
-            url_base ="http://sunsite.icm.edu.pl/pub/tex/systems/texlive"
+            url_base = "http://mirror.ctan.org/systems/texlive"
         try:
             fname = fnames[platform.system()]
         except KeyError:
