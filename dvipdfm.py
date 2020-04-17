@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """`SCons.Tool.dvipdfm`
 
 Tool-specific initialization for dvipdfm.
@@ -9,7 +10,7 @@ selection method.
 
 #
 # Copyright (c) 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013 The SCons Foundation
-# Copyright (c) 2013 by Pawel Tomulik <ptomulik@meil.pw.edu.pl>
+# Copyright (c) 2013-2020 by Paweł Tomulik <ptomulik@meil.pw.edu.pl>
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
